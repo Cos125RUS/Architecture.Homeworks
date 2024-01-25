@@ -1,5 +1,6 @@
 package org.example.ModelElements;
 
+import java.lang.reflect.Type;
 import java.util.List;
 
 public class Scene {
@@ -12,5 +13,15 @@ public class Scene {
         this.models = models;
         this.flashes = flashes;
         this.cameras = cameras;
+    }
+
+    public Type method1(Type type){
+//        TODO: Какая-то логика
+        return type;
+    }
+
+    public Type method2(Type type1, Type type2) {
+//        TODO: Какая-то логика
+        return type1;
     }
 }
