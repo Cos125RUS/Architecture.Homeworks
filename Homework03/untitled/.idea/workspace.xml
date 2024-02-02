@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="d2c560a1-c2f8-41fb-a503-fa9e1ff0abb5" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/DIP/Biter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/DIP/Cat.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/DIP/Dog.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/DIP/MainDIP.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/ISP/Biter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/ISP/Cat.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/ISP/Dog.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/ISP/MainISP.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/ISP/Scratcher.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/LSP/AbstractAnimal.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/LSP/Cat.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/LSP/Dog.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/LSP/MainLSP.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/OCP/Cat.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/OCP/Dog.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/OCP/MainOCP.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/SRC/Animal.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/SRC/Groomer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/SRC/MainSRC.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="Interface" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 4
+}]]></component>
+  <component name="ProjectId" id="2bn9QI6J8NQCfwJmiVYVJXapZjs" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "C:/repo/Studies/Java/Architecture/Homeworks/Homework03/untitled/src/main/java/org/example/DIP",
+    "settings.editor.selected.configurable": "advanced.settings"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\repo\Studies\Java\Architecture\Homeworks\Homework03\untitled\src\main\java\org\example\DIP" />
+      <recent name="C:\repo\Studies\Java\Architecture\Homeworks\Homework03\untitled\src\main\java\org\example\ISP" />
+      <recent name="C:\repo\Studies\Java\Architecture\Homeworks\Homework03\untitled\src\main\java\org\example\LSP" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="org.example.DIP" />
+      <recent name="org.example.OCP" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d2c560a1-c2f8-41fb-a503-fa9e1ff0abb5" name="Changes" comment="" />
+      <created>1706839957341</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1706839957341</updated>
+    </task>
+    <servers />
+  </component>
+</project>
