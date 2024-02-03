@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d2c560a1-c2f8-41fb-a503-fa9e1ff0abb5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/DIP/Biter.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/org/example/DIP/Cat.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/DIP/Cuteness.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/org/example/DIP/Dog.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/org/example/DIP/MainDIP.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/org/example/ISP/Biter.java" afterDir="false" />
