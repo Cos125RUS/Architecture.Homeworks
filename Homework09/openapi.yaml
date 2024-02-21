@@ -1,0 +1,262 @@
+openapi: 3.0.3
+info:
+  title: Заказ ресурсов в облаке
+  version: 0.0.1
+servers:
+  - url: http://localhost:8080/api/v1
+    description: Dev server
+paths:
+  /clouds:
+    get:
+      summary: Метод получения ресурсов облака
+      tags:
+        - Clouds
+      operationId: getAllClouds
+      responses:
+        "200" :
+          description: Успешный ответ со списком ресурсов
+          content:
+            application/json: 
+              schema:
+                $ref: "#/components/schemas/Clouds"
+        "400" :
+          description: Неправильный запрос
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "500" :
+          description: Ошибка на стороне сервера
+          content: 
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "default" : 
+          description: Всё остальное
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+    post:
+      summary: Создание заказа на облако
+      tags:
+        - Clouds
+      operationId: createCloud
+      requestBody: 
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Cloud"
+      responses:
+        "200" :
+          description: Успешный ответ с экземпляром созданного ресурса
+          content:
+            application/json: 
+              schema:
+                $ref: "#/components/schemas/Cloud"
+        "400" :
+          description: Неправильный запрос
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "500" :
+          description: Ошибка на стороне сервера
+          content: 
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "default" : 
+          description: Всё остальное
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+  /clouds/{cloud_id}:
+    delete:
+      summary: Отмена заказа
+      tags:
+        - Clouds
+      operationId: cancelCloudById
+      parameters:
+        - name: cloud_id
+          in: path
+          required: true
+          description: ID заказа облака
+          schema:
+            type: integer
+            example: 123
+      responses:
+        "200" : 
+          description: Успешная отмена заказа
+          content: 
+            application/json: {}
+        "400" :
+          description: Неправильный запрос
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "500" :
+          description: Ошибка на стороне сервера
+          content: 
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "default" : 
+          description: Всё остальное
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+  /users:
+    get:
+      summary: Метод получения списка пользователей
+      tags:
+        - Users
+      operationId: getAllUsers
+      responses:
+        "200" :
+          description: Успешный ответ со списком пользователей
+          content:
+            application/json: 
+              schema:
+                $ref: "#/components/schemas/Users"
+        "400" :
+          description: Неправильный запрос
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "500" :
+          description: Ошибка на стороне сервера
+          content: 
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "default" : 
+          description: Всё остальное
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+    post:
+      summary: Создание нового юзера
+      tags:
+        - Users
+      operationId: createUser
+      requestBody: 
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/User"
+      responses:
+        "200" :
+          description: Успешный ответ с экземпляром созданного юзера
+          content:
+            application/json: 
+              schema:
+                $ref: "#/components/schemas/User"
+        "400" :
+          description: Неправильный запрос
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "500" :
+          description: Ошибка на стороне сервера
+          content: 
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "default" : 
+          description: Всё остальное
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+  /users/{user_id}:
+    delete:
+      summary: Удаление пользователя
+      tags:
+        - Users
+      operationId: deleteUserById
+      parameters:
+        - name: user_id
+          in: path
+          required: true
+          description: ID пользователя
+          schema:
+            type: integer
+            example: 123
+      responses:
+        "200" : 
+          description: Пользователь успешно удалён
+          content: 
+            application/json: {}
+        "400" :
+          description: Неправильный запрос
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "500" :
+          description: Ошибка на стороне сервера
+          content: 
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "default" : 
+          description: Всё остальное
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+components:
+  schemas:
+    Cloud:
+      type: object
+      properties: 
+        cloud_id: 
+          type: integer
+          example: 1123
+        ram:
+          type: integer
+          example: 16
+        cpu:
+          type: integer
+          example: 2
+        ssd:
+          type: integer
+        os:
+          type: string
+          example: linux
+    Clouds:
+      type: array
+      items: 
+        $ref: "#/components/schemas/Cloud"
+    Error:
+      type: object
+      properties:
+        code_error:
+          type: integer
+          example: 28
+        code_message:
+          type: string
+          example: error
+    User:
+      type: object
+      properties:
+        name:
+          type: string
+          example: Валерий
+        hash:
+          type: string
+          example: 72faed2c866dc023a126cb4cd4bbffab3683ecde243cf8d88967184680
+        email:
+          type: string
+          example: example@mail.ru
+    Users:
+      type: array
+      items:
+        $ref: "#/components/schemas/User"
