@@ -1,0 +1,73 @@
+
+person {
+	id integer pk increments
+	first_name text
+	last_name text
+	birthday date
+	login text
+	hash_password text
+	gender integer
+}
+
+patient {
+	id integer pk increments
+	person_id integer > person.id
+	policy_id integer > policy.id
+}
+
+policy {
+	id integer pk increments
+	type varchar(15)
+	number decimal
+	expiration_date date
+	policyholder_id integer *> policyholder.id
+}
+
+policyholder {
+	id integer pk increments
+	organisation varchar(30)
+	checking_account decimal
+}
+
+doctor {
+	id integer pk increments
+	person_id integer > person.id
+	date_of_employment date
+	qualification_id integer > qualification.id
+	specialization text
+	salary integer
+	post_id integer > post.id
+}
+
+qualification {
+	id integer pk increments
+	name varchar(30) pk increments
+	description text
+}
+
+post {
+	id integer pk increments
+	name varchar(20)
+	responsibilities_id integer > responsibilities.id
+}
+
+responsibilities {
+	id integer pk increments
+	description text
+}
+
+schedule {
+	id integer pk increments
+	date_and_time timestamp
+	patient_id integer *> patient.id
+	doctor_id integer *> doctor.id
+	type_of_appeal integer *> type_of_appeal.id
+	address text
+}
+
+type_of_appeal {
+	id integer pk increments
+	name varchar(50)
+	service_cost decimal
+}
+

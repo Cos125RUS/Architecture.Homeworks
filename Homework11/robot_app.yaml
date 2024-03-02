@@ -1,0 +1,441 @@
+openapi: 3.0.3
+info:
+  title: Управление роботом пылесосом
+  version: 0.0.7
+servers:
+  - url: http://localhost:8080/api/v1
+    description: dev server
+paths:
+  /auth:
+    post:
+      summary: Отправка данных для регистрации/аутентификации
+      tags:
+        - Auth
+      operationId: authUser
+      requestBody: 
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Auth"
+      responses:
+        "200" :
+          description: token доступа
+          content:
+            application/json: 
+              schema:
+                $ref: "#/components/schemas/Token"
+        "400" :
+          description: Неправильный запрос
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "500" :
+          description: Ошибка на стороне сервера
+          content: 
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "default" : 
+          description: Всё остальное
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+  /users:
+    get:
+      summary: Метод получения списка пользователей
+      tags:
+        - Users
+      operationId: getAllUsers
+      responses:
+        "200" :
+          description: Успешный ответ со списком пользователей
+          content:
+            application/json: 
+              schema:
+                $ref: "#/components/schemas/Users"
+        "400" :
+          description: Неправильный запрос
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "500" :
+          description: Ошибка на стороне сервера
+          content: 
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "default" : 
+          description: Всё остальное
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+    post:
+      summary: Создание нового юзера
+      tags:
+        - Users
+      operationId: createUser
+      requestBody: 
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/User"
+      responses:
+        "200" :
+          description: Успешный ответ с экземпляром созданного юзера
+          content:
+            application/json: 
+              schema:
+                $ref: "#/components/schemas/User"
+        "400" :
+          description: Неправильный запрос
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "500" :
+          description: Ошибка на стороне сервера
+          content: 
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "default" : 
+          description: Всё остальное
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+  /users/{user_id}:
+    delete:
+      summary: Удаление пользователя
+      tags:
+        - Users
+      operationId: deleteUserById
+      parameters:
+        - name: user_id
+          in: path
+          required: true
+          description: ID пользователя
+          schema:
+            type: integer
+            example: 123
+      responses:
+        "200" : 
+          description: Пользователь успешно удалён
+          content: 
+            application/json: {}
+        "400" :
+          description: Неправильный запрос
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "500" :
+          description: Ошибка на стороне сервера
+          content: 
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "default" : 
+          description: Всё остальное
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+  /robots:
+    get:
+      summary: Метод получения списка роботов
+      tags:
+        - Robots
+      operationId: getAllRobots
+      responses:
+        "200" :
+          description: Успешный ответ со списком роботов
+          content:
+            application/json: 
+              schema:
+                $ref: "#/components/schemas/Robots"
+        "400" :
+          description: Неправильный запрос
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "500" :
+          description: Ошибка на стороне сервера
+          content: 
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "default" : 
+          description: Всё остальное
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+    post:
+      summary: Добавление нового робота
+      tags:
+        - Robots
+      operationId: createRobot
+      requestBody: 
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Robot"
+      responses:
+        "200" :
+          description: Успешный ответ с экземпляром созданного робота
+          content:
+            application/json: 
+              schema:
+                $ref: "#/components/schemas/Robot"
+        "400" :
+          description: Неправильный запрос
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "500" :
+          description: Ошибка на стороне сервера
+          content: 
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "default" : 
+          description: Всё остальное
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+  /robots/{robot_id}:
+    delete:
+      summary: Удаление робота
+      tags:
+        - Robots
+      operationId: deleteRobotById
+      parameters:
+        - name: robot_id
+          in: path
+          required: true
+          description: ID робота
+          schema:
+            type: integer
+            example: 123
+      responses:
+        "200" : 
+          description: Робот успешно удалён
+          content: 
+            application/json: {}
+        "400" :
+          description: Неправильный запрос
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "500" :
+          description: Ошибка на стороне сервера
+          content: 
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "default" : 
+          description: Всё остальное
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+  /groups:
+    get:
+      summary: Метод получения списка групп
+      tags:
+        - Groups
+      operationId: getAllGroups
+      responses:
+        "200" :
+          description: Успешный ответ со списком групп
+          content:
+            application/json: 
+              schema:
+                $ref: "#/components/schemas/Groups"
+        "400" :
+          description: Неправильный запрос
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "500" :
+          description: Ошибка на стороне сервера
+          content: 
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "default" : 
+          description: Всё остальное
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+    post:
+      summary: Добавление новой группы
+      tags:
+        - Groups
+      operationId: createGroup
+      requestBody: 
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Group"
+      responses:
+        "200" :
+          description: Успешный ответ с экземпляром созданной группы
+          content:
+            application/json: 
+              schema:
+                $ref: "#/components/schemas/Group"
+        "400" :
+          description: Неправильный запрос
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "500" :
+          description: Ошибка на стороне сервера
+          content: 
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "default" : 
+          description: Всё остальное
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+  /groups/{group_id}:
+    delete:
+      summary: Удаление группы
+      tags:
+        - Groups
+      operationId: deleteGroupById
+      parameters:
+        - name: group_id
+          in: path
+          required: true
+          description: ID группы
+          schema:
+            type: integer
+            example: 123
+      responses:
+        "200" : 
+          description: Группа успешно удалён
+          content: 
+            application/json: {}
+        "400" :
+          description: Неправильный запрос
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "500" :
+          description: Ошибка на стороне сервера
+          content: 
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "default" : 
+          description: Всё остальное
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+components:
+  schemas:
+    Auth:
+      type: object
+      properties: 
+        email: 
+          type: string
+          example: example@mail.ru
+        hash_password:
+          type: string
+          example: sdf1sd65f1sd35f1sdfdsf6s5df1sd35f1sd3
+    Token:
+      type: object
+      properties:
+        token:
+          type: string
+          example: sdf1sd65f34531335134t565=!fgh56@thrhrth5168dfsgdfgbdgrbdrb897987*1sd35f1sdfdsf6s5df1sd35f1sd3
+    Error:
+      type: object
+      properties:
+        code_error:
+          type: integer
+          example: 28
+        code_message:
+          type: string
+          example: error
+    User:
+      type: object
+      properties:
+        name:
+          type: string
+          example: Валерий
+        hash:
+          type: string
+          example: 72faed2c866dc023a126cb4cd4bbffab3683ecde243cf8d88967184680
+        email:
+          type: string
+          example: example@mail.ru
+    Users:
+      type: array
+      items:
+        $ref: "#/components/schemas/User"
+    Robot:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 13254513
+        manufacturer:
+          type: string
+          example: Xiaomi
+        model:
+          type: string
+          example: Dreame Bot Z10 Pro
+        factory_num:
+          type: string
+          example: 1235
+        version:
+          type: string
+          example: 1.5.4
+        ip:
+          type: string
+          example: 45.111.108.45
+    Robots:
+      type: array
+      items:
+        $ref: "#/components/schemas/Robot"
+    Group:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 13254513
+        name:
+          type: string
+          example: family
+        members:
+          type: array
+          items:
+            $ref: "#/components/schemas/User"
+        robots:
+          type: array
+          items:
+            $ref: "#/components/schemas/Robot"
+    Groups:
+      type: array
+      items:
+        $ref: "#/components/schemas/Group"
